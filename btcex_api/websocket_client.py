@@ -12,7 +12,7 @@ class WebsocketClient(object):
         self.client_secret = client_secret
         self.ws = None
         self.__id = 1
-        self.ws_url = 'wss://www.bitcharm.com/ws/api/v1'
+        self.ws_url = 'wss://api.btcex.com/ws/api/v1'
 
     async def auth(self, wait_time=0, websocket_connection=None):
         assert self.client_key and self.client_secret, 'please set client_id and client_secret'
