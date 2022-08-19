@@ -25,3 +25,14 @@ class Call(object):
         }
         r = await async_post(url.url, params, headers, timeout=self.timeout)
         return check_result(r)
+
+    async def signature_post(self, url: Path, params=None):
+        headers = self.__secret.signature_headers()
+        params = {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": url.path,
+            "params": params,
+        }
+        r = await async_post(url.url, params, headers, timeout=self.timeout)
+        return check_result(r)

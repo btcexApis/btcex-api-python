@@ -65,5 +65,5 @@ class ApiClient(object):
         }
         if memo:
             params['memo'] = memo
-        r = await self._call.post(url=url, params=params)
+        r = await self._call.signature_post(url=url, params=params)
         print(r)

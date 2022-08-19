@@ -3,7 +3,7 @@ import unittest
 
 from btcex_api.rest_api_client import ApiClient
 
-api = ApiClient(client_id='e429d4d1', client_secret='16974d86b74c9eb25e1c0511')
+api = ApiClient(client_id='28e91afa', client_secret='**********************')
 
 
 class TestApiTest(unittest.TestCase):
@@ -17,7 +17,7 @@ class TestApiTest(unittest.TestCase):
 
     def test_adjust_perpetual_margin_type(self):
         asyncio.run(
-            api.adjust_perpetual_margin_type(symbol='BNB-USDT-PERPETUAL', margin_type='Cross')
+            api.adjust_perpetual_margin_type(symbol='BTC-USDT-PERPETUAL', margin_type='Isolate')
         )
 
     def test_withdraw(self):

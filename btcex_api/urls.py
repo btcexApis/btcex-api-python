@@ -14,6 +14,6 @@ class Urls(object):
 
     token = Path(base, '/public/auth')
     wallet_transfer = Path(base, '/private/submit_transfer')
-    withdraw = Path(base, 'private/withdraw')
+    withdraw = Path(base, '/private/withdraw')
     leverage = Path(base, '/private/adjust_perpetual_leverage')
     adjust_perpetual_margin_type = Path(base, '/private/adjust_perpetual_margin_type')
