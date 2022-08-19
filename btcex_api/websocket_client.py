@@ -5,6 +5,8 @@ import traceback
 
 import websockets
 
+from btcex_api.urls import Urls
+
 
 class WebsocketClient(object):
     def __init__(self, client_id: str, client_secret: str):
@@ -12,7 +14,6 @@ class WebsocketClient(object):
         self.client_secret = client_secret
         self.ws = None
         self.__id = 1
-        self.ws_url = 'wss://api.btcex.com/ws/api/v1'
 
     async def auth(self, wait_time=0, websocket_connection=None):
         assert self.client_key and self.client_secret, 'please set client_id and client_secret'
@@ -56,7 +57,7 @@ class WebsocketClient(object):
 
     async def receive_private_ws_message(self):
         logging.info('start call receive_private_ws_message')
-        async with websockets.connect(self.ws_url) as websocket:
+        async with websockets.connect(Urls.ws_base) as websocket:
             await self.auth(wait_time=2, websocket_connection=websocket)
             asyncio.create_task(self.ping())
             self.ws = websocket
